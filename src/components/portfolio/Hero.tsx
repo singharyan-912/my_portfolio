@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { GitBranch, Link, Code2, Mail } from "lucide-react";
-import profileImg from "@/components/asset/img2.png";
+// @ts-ignore
+import profileImg from "../asset/img2.png";
 
 const socialLinks = [
   { icon: GitBranch, href: "https://github.com/singharyan-912", label: "GitHub" },
