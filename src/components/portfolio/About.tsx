@@ -9,7 +9,7 @@ const About = () => {
   const { data, loading } = useGitHubData();
 
   const stats = [
-    { icon: Code, value: "150+", label: "DSA Problems", dynamic: false },
+    { icon: Code, value: "200+", label: "DSA Problems", dynamic: false },
     {
       icon: Cloud,
       value: loading ? null : `${data.repoCount}+`,

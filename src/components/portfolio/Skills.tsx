@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import {
   Code2, Globe, Database, Cloud, GitBranch, Terminal,
   Layers, Cpu, Braces, FileCode, Server, Container,
-  Palette, Layout, Smartphone, Workflow
+  Palette, Layout, Smartphone, Workflow, Hash, Monitor, Network
 } from "lucide-react";
 
 const skillCategories = [
@@ -11,7 +11,9 @@ const skillCategories = [
     skills: [
       { name: "JavaScript", icon: Braces },
       { name: "HTML/CSS", icon: FileCode },
-      { name: "C++", icon: Terminal },
+      { name: "Java", icon: Terminal },
+      { name: "Python", icon: Hash },
+      { name: "C", icon: Terminal },
       { name: "SQL", icon: Database },
     ],
   },
@@ -22,6 +24,7 @@ const skillCategories = [
       { name: "Tailwind CSS", icon: Palette },
       { name: "Node.js", icon: Server },
       { name: "Firebase", icon: Layers },
+      { name: "Supabase", icon: Database },
     ],
   },
   {
@@ -37,33 +40,44 @@ const skillCategories = [
     title: "Core CS",
     skills: [
       { name: "Data Structures", icon: Cpu },
-      { name: "Algorithms", icon: Globe },
+      { name: "Algorithms", icon: Workflow },
       { name: "Problem Solving", icon: Layout },
       { name: "System Design", icon: Smartphone },
+      { name: "Computer Networks", icon: Network },
+      { name: "Operating System", icon: Monitor },
+      { name: "DBMS", icon: Database },
     ],
   },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 relative">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[150px]" />
+    <section id="skills" className="py-24 relative overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-[150px] -z-10" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[120px] -z-10" />
 
-      <div className="max-w-6xl mx-auto px-6 relative">
+      <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="text-primary text-sm font-semibold uppercase tracking-widest">My Skills</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            What <span className="text-primary">I Work With</span>
-          </h2>
+          <div className="relative inline-block">
+            <span className="text-primary text-sm font-bold uppercase tracking-[0.2em] mb-2 block">Technical Arsenal</span>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
+              What <span className="text-primary">I Work With</span>
+            </h2>
+            {/* Subtle background text for depth */}
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-8xl font-black text-foreground/[0.03] select-none -z-10 uppercase">
+              Skills
+            </span>
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {skillCategories.map((category, ci) => (
             <motion.div
               key={category.title}
@@ -71,22 +85,29 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: ci * 0.1 }}
-              className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300"
+              className="group p-8 rounded-[2rem] bg-card/40 backdrop-blur-xl border border-border/50 hover:border-primary/40 transition-all duration-500 hover:shadow-[0_0_40px_-15px_hsl(var(--primary)/0.2)]"
             >
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-primary mb-5">
-                {category.title}
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="flex items-center justify-between mb-8">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground group-hover:text-primary transition-colors">
+                  {category.title}
+                </h3>
+                <div className="w-2 h-2 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
+              </div>
+
+              <div className="flex flex-col gap-4">
                 {category.skills.map(({ name, icon: Icon }) => (
-                  <div
+                  <motion.div
                     key={name}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary/50 border border-border hover:border-primary/40 hover:bg-secondary transition-all duration-200 group"
+                    whileHover={{ x: 5 }}
+                    className="flex items-center gap-4 group/item"
                   >
-                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <Icon className="w-4.5 h-4.5 text-primary" size={18} />
+                    <div className="w-10 h-10 rounded-xl bg-secondary/50 border border-border/50 flex items-center justify-center group-hover/item:bg-primary/10 group-hover/item:border-primary/30 transition-all">
+                      <Icon size={18} className="text-muted-foreground group-hover/item:text-primary transition-colors" />
                     </div>
-                    <span className="text-sm font-medium text-foreground">{name}</span>
-                  </div>
+                    <span className="text-sm font-semibold text-foreground/80 group-hover/item:text-foreground transition-colors">
+                      {name}
+                    </span>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

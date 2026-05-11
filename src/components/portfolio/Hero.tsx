@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GitBranch, Link, Code2, Mail } from "lucide-react";
+import { GitBranch, Link, Code2, Mail, FileDown } from "lucide-react";
 // @ts-ignore
 import profileImg from "../asset/img2.png";
 
@@ -42,7 +42,7 @@ const Hero = () => {
             <span className="text-foreground font-semibold">Data Structures</span>.
           </p>
 
-          <div className="flex items-center gap-4 mb-10">
+          <div className="flex flex-wrap items-center gap-3 mb-10">
             <a
               href="#projects"
               className="px-7 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
@@ -54,6 +54,14 @@ const Hero = () => {
               className="px-7 py-3 rounded-full border border-border text-foreground font-semibold hover:bg-secondary transition-colors"
             >
               Contact Me
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/30 text-primary font-semibold hover:bg-primary/20 transition-colors"
+            >
+              <FileDown size={16} />
+              Get Resume
             </a>
           </div>
 
