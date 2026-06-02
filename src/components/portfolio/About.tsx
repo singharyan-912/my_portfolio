@@ -84,7 +84,7 @@ const About = () => {
                 {dynamic && loading ? (
                   <Skeleton className="h-9 w-16 mb-1" />
                 ) : (
-                  <div className="text-3xl font-bold text-foreground">{value}</div>
+                  <div className="text-3xl font-bold text-primary">{value}</div>
                 )}
                 <div className="text-sm text-muted-foreground mt-1">{label}</div>
               </motion.div>

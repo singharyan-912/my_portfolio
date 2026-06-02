@@ -303,7 +303,7 @@ const DSAStatsCard = () => (
       <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2">
         DSA Problem Solver
       </h3>
-      <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+      <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
         Solved 200+ problems across competitive coding platforms, strengthening algorithmic thinking and problem-solving abilities.
       </p>
 

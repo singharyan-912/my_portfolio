@@ -209,8 +209,8 @@ const CertCard = ({ cert, index }: { cert: Certification; index: number }) => {
         </div>
 
         {/* Credential link */}
-        {cert.credentialUrl && (
-          <div className="pt-3 border-t border-border mt-auto">
+        <div className="pt-3 border-t border-border mt-auto">
+          {cert.credentialUrl ? (
             <a
               href={cert.credentialUrl}
               target="_blank"
@@ -221,8 +221,13 @@ const CertCard = ({ cert, index }: { cert: Certification; index: number }) => {
               View Certificate
               <ExternalLink size={11} />
             </a>
-          </div>
-        )}
+          ) : (
+            <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground/50 select-none">
+              <ShieldCheck size={12} className="opacity-50" />
+              Credentials verified
+            </span>
+          )}
+        </div>
       </div>
     </motion.div>
   );

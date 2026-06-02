@@ -48,7 +48,7 @@ const Navbar = () => {
         <a
           href="#contact"
           onClick={() => scrollTo("Contact")}
-          className="hidden md:inline-flex px-5 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
+          className="hidden md:inline-flex px-5 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:bg-primary-hover transition-colors duration-300"
         >
           Hire Me
         </a>

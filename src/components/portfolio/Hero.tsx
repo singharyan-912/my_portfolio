@@ -23,8 +23,11 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-secondary/50 text-sm text-muted-foreground mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-border bg-secondary/50 text-sm text-muted-foreground mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
             Available for work
           </div>
 
@@ -37,35 +40,29 @@ const Hero = () => {
 
           <p className="text-lg text-muted-foreground max-w-md mb-8 leading-relaxed">
             Computer Science Engineering student passionate about{" "}
-            <span className="text-foreground font-semibold">Cloud Computing</span>,{" "}
-            <span className="text-foreground font-semibold">Web Development</span>, and{" "}
-            <span className="text-foreground font-semibold">Data Structures</span>.
+            <span className="text-primary font-semibold">Cloud Computing</span>,{" "}
+            <span className="text-primary font-semibold">Web Development</span>, and{" "}
+            <span className="text-primary font-semibold">Data Structures</span>.
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 mb-10">
+          <div className="flex flex-wrap items-center gap-4">
             <a
               href="#projects"
-              className="px-7 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
+              className="px-7 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary-hover transition-colors duration-300"
             >
               View Projects
             </a>
             <a
-              href="#contact"
-              className="px-7 py-3 rounded-full border border-border text-foreground font-semibold hover:bg-secondary transition-colors"
-            >
-              Contact Me
-            </a>
-            <a
               href="/resume.pdf"
               download
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/30 text-primary font-semibold hover:bg-primary/20 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-primary text-primary font-semibold hover:bg-primary/10 transition-colors duration-300"
             >
               <FileDown size={16} />
               Get Resume
             </a>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 mt-6">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
@@ -100,14 +97,14 @@ const Hero = () => {
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 3 }}
-              className="absolute -top-2 -right-2 px-3 py-1.5 rounded-lg bg-card/80 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg"
+              className="absolute -top-2 -right-2 px-3 py-1.5 rounded-lg bg-card/80 backdrop-blur-md border border-[#957C3D]/30 text-xs font-medium text-foreground shadow-lg"
             >
               React ⚡
             </motion.div>
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 3.5 }}
-              className="absolute -bottom-2 -left-2 px-3 py-1.5 rounded-lg bg-card/80 backdrop-blur-sm border border-border text-xs font-medium text-foreground shadow-lg"
+              className="absolute -bottom-2 -left-2 px-3 py-1.5 rounded-lg bg-card/80 backdrop-blur-md border border-[#957C3D]/30 text-xs font-medium text-foreground shadow-lg"
             >
               Cloud ☁️
             </motion.div>
